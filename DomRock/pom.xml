@@ -34,6 +34,13 @@
 		</repository>
 	</repositories>
 	<dependencies>
+	
+		<!-- OMNI Faces -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>1.11</version>
+		</dependency>
 
 		<!-- MySQL Connector -->
 		<dependency>

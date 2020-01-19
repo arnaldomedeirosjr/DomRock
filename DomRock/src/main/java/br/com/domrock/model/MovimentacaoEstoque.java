@@ -12,19 +12,13 @@ public class MovimentacaoEstoque implements Serializable  {
 	private Date data;
 	private Double quantidade;
 	private Double valor;
-	private Double saldo;
+	private Double Total;
 	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public Double getSaldo() {
-		return saldo;
-	}
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
 	}
 	public String getItem() {
 		return Item;
@@ -55,5 +49,11 @@ public class MovimentacaoEstoque implements Serializable  {
 	}
 	public void setValor(Double valor) {
 		this.valor = valor;
+	}
+	public Double getTotal() {
+		return Total;
+	}
+	public void setTotal(Double total) {
+		Total = total;
 	}
 }

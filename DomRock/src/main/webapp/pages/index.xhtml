@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/model.xhtml">
+
+	<ui:define name="conteudo">
+		<p:dataTable id="tabelaMov" emptyMessage="Nenhum registro encontrado."
+			paginator="true" value="#{xlsBean.estoques}" var="movimentacao"
+			paginatorPosition="bottom" rows="20">
+
+			<p:column headerText="ITEM">
+				<h:outputText value="#{movimentacao.item}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="DATA">
+				<h:outputText value="#{movimentacao.data}">
+					<f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"
+						timeZone="America/Sao_Paulo" />
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="TIPO">
+				<h:outputText value="#{movimentacao.tipo}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="QUANTIDADE">
+				<h:outputText value="#{movimentacao.quantidade}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="VALOR">
+				<h:outputText value="#{movimentacao.valor}" />
+			</p:column>
+
+			<p:column headerText="TOTAL">
+				<h:outputText value="#{movimentacao.total}" />
+			</p:column>
+		</p:dataTable>
+
+		<p:separator />
+
+		<p:separator />
+
+
+		<p:dataTable id="tabelaSaldo"
+			emptyMessage="Nenhum registro encontrado." paginator="true"
+			value="#{xlsBean.saldoItems}" var="saldo" paginatorPosition="bottom"
+			rows="20">
+
+			<p:column headerText="ITEM">
+				<h:outputText value="#{saldo.item}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="DATA INICIAL">
+				<h:outputText value="#{saldo.data_inicio}">
+					<f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"
+						timeZone="America/Sao_Paulo" />
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="QUANTIDADE INICIAL">
+				<h:outputText value="#{saldo.qtd_inicio}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="VALOR INICIAL">
+				<h:outputText value="#{saldo.valor_inicio}" />
+			</p:column>
+
+			<p:column headerText="DATA FINAL">
+				<h:outputText value="#{saldo.data_inicio}">
+					<f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"
+						timeZone="America/Sao_Paulo" />
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="QUANTIDADE FINAL">
+				<h:outputText value="#{saldo.qtd_inicio}">
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="VALOR FINAL">
+				<h:outputText value="#{saldo.valor_inicio}" />
+			</p:column>
+
+			<p:column headerText="SALDO">
+				<h:outputText value="#{saldo.saldo_final}" />
+			</p:column>
+		</p:dataTable>
+
+		<p:separator />
+
+	</ui:define>
+
+
+
+</ui:composition>
