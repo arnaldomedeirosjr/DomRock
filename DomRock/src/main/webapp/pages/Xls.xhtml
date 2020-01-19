@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/model.xhtml">
+
+	<ui:define name="conteudo">
+		<p:separator />
+		
+		<h:form>
+			<p:outputLabel value="Faça o upload do Arquivos .xls: " />
+
+			<h:panelGrid columns="2">
+
+				<p:outputLabel value="Anexar:" />
+				<p:fileUpload id="upload" mode="advanced"
+					fileUploadListener="#{xlsBean.uploadMov}">
+				</p:fileUpload>
+
+				<p:outputLabel value="Anexar:" />
+				<p:fileUpload id="uploadSaldo" mode="advanced"
+					fileUploadListener="#{xlsBean.uploadSaldo}">
+				</p:fileUpload>
+			</h:panelGrid>
+
+		</h:form>
+		<p:separator />
+		<h:form>
+			<h:panelGrid columns="3">
+				<p:commandButton value="Processar"
+					actionListener="#{xlsBean.processar}" update=":mensagem" />
+				<p:outputLabel value="" />
+			</h:panelGrid>
+
+			<p:separator />
+
+			<h:panelGrid columns="3">
+
+				<p:outputLabel
+					value="Digite o caminho para exportar as tabelas para .csv:" />
+				<p:inputText value="#{xlsBean.pathCsv}" />
+				<p:outputLabel value="" />
+
+				<p:commandButton value="Exportar"
+					actionListener="#{xlsBean.exportar}" update=":mensagem " />
+				<p:outputLabel value="" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
